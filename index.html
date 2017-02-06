@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css" />
+    
+   
+</head>
+
+<body>
+    <div id="root"></div>
+
+
+
+
+ <script type="text/babel">
+
+    var ExampleElement = React.createClass({
+      
+        render : function() { return (
+            <button onClick={this.props.inc}>+1</button>);
+             }
+
+     });
+
+     var Result = React.createClass({
+         render:function(){
+             return (
+                 <div><h1>{this.props.incremented}</h1></div>
+             )
+         }
+
+     });
+   
+     
+     
+
+
+
+
+
+
+   var Main = React.createClass({
+         getInitialState : function(){
+            return ({counter:0})
+        },
+        increment: function(){
+            this.setState({counter:this.state.counter+1});
+        },
+        render : function(){
+        return(
+            <div>
+                <ExampleElement inc={this.increment} />
+                <Result incremented = {this.state.counter}/>
+               
+               
+            </div>
+        )
+    }
+})
+
+
+    ReactDOM.render(<Main/>, document.getElementById('root'));
+
+    </script>
+    <script src="https://fb.me/react-0.14.6.js"></script>
+    <script src="https://fb.me/react-dom-0.14.6.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+  
+</body>
+
+</html>
